@@ -1,0 +1,29 @@
+[Unit]
+Description=ebook2audiobook Docker Service (user: nacho, auto-updating)
+After=network-online.target docker.service
+Requires=docker.service
+
+[Service]
+Type=oneshot
+User=nacho
+Group=nacho
+RemainAfterExit=yes
+Environment="HOME=/home/nacho"
+WorkingDirectory=/home/nacho
+ExecStartPre=/usr/bin/docker pull athomasson2/ebook2audiobookxtts:huggingface
+ExecStart=/usr/bin/docker run \
+  --rm \
+  --name ebook2audiobook \
+  -p 7860:7860 \
+  --platform=linux/amd64 \
+  -v /home/nacho/workshop/audiobooks/output:/app/output \
+  athomasson2/ebook2audiobookxtts:huggingface \
+  python app.py
+ExecStop=/usr/bin/docker stop ebook2audiobook
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
+
+

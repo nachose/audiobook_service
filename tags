@@ -1,0 +1,30 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_OUTPUT_EXCMD	mixed	/number, pattern, mixed, or combineV2/
+!_TAG_OUTPUT_FILESEP	slash	/slash or backslash/
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
+!_TAG_PATTERN_LENGTH_LIMIT	96	/0 for no limit/
+!_TAG_PROC_CWD	/home/nacho/workshop/audiobooks/audiobook_service/	//
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	5.9.0	//
+After	ebook2audiobook.service	/^After=network-online.target docker.service$/;"	k	section:Unit
+Description	ebook2audiobook.service	/^Description=ebook2audiobook Docker Service (user: nacho, auto-updating)$/;"	k	section:Unit
+Environment	ebook2audiobook.service	/^Environment="HOME=\/home\/nacho"$/;"	k	section:Service
+ExecStart	ebook2audiobook.service	/^ExecStart=\/usr\/bin\/docker run \\$/;"	k	section:Service
+ExecStartPre	ebook2audiobook.service	/^ExecStartPre=\/usr\/bin\/docker pull athomasson2\/ebook2audiobookxtts:huggingface$/;"	k	section:Service
+ExecStop	ebook2audiobook.service	/^ExecStop=\/usr\/bin\/docker stop ebook2audiobook$/;"	k	section:Service
+Group	ebook2audiobook.service	/^Group=nacho$/;"	k	section:Service
+Install	ebook2audiobook.service	/^[Install]$/;"	s
+RemainAfterExit	ebook2audiobook.service	/^RemainAfterExit=yes$/;"	k	section:Service
+Requires	ebook2audiobook.service	/^Requires=docker.service$/;"	k	section:Unit
+Restart	ebook2audiobook.service	/^Restart=always$/;"	k	section:Service
+RestartSec	ebook2audiobook.service	/^RestartSec=10$/;"	k	section:Service
+Service	ebook2audiobook.service	/^[Service]$/;"	s
+Type	ebook2audiobook.service	/^Type=oneshot$/;"	k	section:Service
+Unit	ebook2audiobook.service	/^[Unit]$/;"	s
+User	ebook2audiobook.service	/^User=nacho$/;"	k	section:Service
+WantedBy	ebook2audiobook.service	/^WantedBy=multi-user.target$/;"	k	section:Install
+WorkingDirectory	ebook2audiobook.service	/^WorkingDirectory=\/home\/nacho$/;"	k	section:Service
+audiobook_service	README.md	/^# audiobook_service$/;"	c
